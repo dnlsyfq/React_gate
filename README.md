@@ -10,6 +10,7 @@ $npm start
 ```
 
 ### Displaying things
+When you have multiple elements, put them in a single <div> tag
 
 ```
 // app.js
@@ -26,7 +27,11 @@ export default App;
 
 
 ```
+When JSX is put between the symbols {/* and */}, the text inside becomes a comment. 
 
+```
+<img src=" "/>
+```
 
 
 
