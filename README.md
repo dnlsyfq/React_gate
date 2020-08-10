@@ -1,3 +1,35 @@
+### Config
+
+```
+$npm init
+$npx create-react-app <name>
+$npm start
+
+
+
+```
+
+### Displaying things
+
+```
+// app.js
+
+class App extends React.Component {
+  render() {
+    return (
+      <h1>Hello React</h1>
+    );
+  }
+}
+
+export default App;
+
+
+```
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
