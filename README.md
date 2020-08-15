@@ -26,6 +26,7 @@ class App extends React.Component {
 export default App;
 
 
+
 ```
 When JSX is put between the symbols {/* and */}, the text inside becomes a comment. 
 
@@ -103,3 +104,173 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### JS and JSX 
+* JSX is only written inside the return section of the render method
+
+* JavaScript can be written outside the return section (but still inside the render method)
+
+```
+class App extends React.Component {
+  render(){
+    const text = 'Hello World';
+    return (
+      // put JSX here
+    );
+  }
+}
+```
+
+* Putting JS Code inside JSX
+
+```
+render(){
+  // comment 
+  const text = 'Hello World';
+  return (
+    {/*comment  */}
+    <div> {text} </div>
+  );
+}
+```
+
+## Click Events
+To change what is displayed when someone clicks a button
+
+* events
+* state
+
+### to Use Events
+* template
+```
+<button eventName={
+  ()=> {code}
+  }></button>
+```
+
+```
+  <button onClick={()=> {code}}>Master White</button>
+```
+
+* Using console.log() with an onClick Event
+```
+<button onClick={()=>{
+  console.log('Master White')
+}}>
+</button>
+```
+### State
+A value that changes depending on a user's actions is called state 
+
+We can update the state whenever a button is pressed, then change which name is displayed based on the state.
+
+* flow of displaying state changes 
+
+1. define state
+2. display state
+3. update state
+
+* define state
+```
+const user = {
+  name: "Ken the Ninja",
+  age:14
+}
+
+console.log(user.age);
+```
+```
+class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {name:'Ken the Ninja'};
+  }
+}
+```
+* display state
+* app.js
+```
+class App extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {name:'Ken the Ninja'}
+  }
+  render(){
+    console.log(this.state)
+    return(
+      <h1>Hello, {this.state.name}!</h1>
+    );
+  }
+}
+```
+
+* update state 
+the value of state for the specified property changes
+> this.setState({propertyName: valueToUpdate})
+
+```
+// This means values can be displayed with this.state.name can also be changed. To change the name displayed when a button is clicked, we'll put setState inside method for the onClick event
+
+<h1>Hello, {this.state.name}!</h1>
+
+<button onClick={() => {
+  this.setState({name:'Master White'})
+}}>Master White</button>
+
+<button onClick={() => {
+  this.setState({name:'Ken the Ninja'})
+}}>Ken the Ninja</button>
+
+
+
+```
+
+### methods in classes
+
+```
+class className {
+  constructor(){
+    ...
+  }
+
+  methodName(){
+    ...
+  }
+}
+```
+```
+class App extends React.Component{
+  handleClick(){
+
+  }
+}
+```
+
+Methods can also be called using events. The codeonClick={() => {this.methodName()}} will run the method with the name "methodName" (can be any name) in the App.js file when this component (the element containing the method itself) is clicked.
+
+```
+render(){
+  return(
+    <button onClick={()=>{this.handleClick()}}>
+      Master White
+    </button>
+  )
+}
+```
+
+passing arguments to methods 
+
+```
+class App extends React.Component
+
+  handleClick(name){
+    this.setState({name:name});
+  }
+
+  <button onClick={()=>{this.handleClick('Master White)}}>
+  Master White
+  </button>
+  <button onClick={()=>{this.handleClick('Ken the Ninja')}}>
+  Ken the Ninja
+  </button>
+```
