@@ -274,3 +274,105 @@ class App extends React.Component
   Ken the Ninja
   </button>
 ```
+
+* defining state
+
+App.js
+```
+constructor(props){
+  super(props);
+  this.state = {count:0};
+}
+```
+
+* display state
+
+App.js
+```
+render(){
+  return(
+    <div>
+      <h1>
+        {this.state.count}
+      </h1>
+      <button>+</button>
+    </div>
+  )
+}
+```
+
+* update state
+
+```
+handleClick(){
+  this.setState({count:this.state.count + 1});
+}
+```
+
+App.js
+```
+class App extends React.Component {
+
+  handleClick(){
+    this.setState({count:this.state.count + 1});
+  }
+
+  render(){
+    return (
+      <button onClick={() => {this.handleClick()}}>
+      +
+      </button>
+    )
+  }
+
+}
+
+```
+
+### Displaying React
+
+App.js -> index.js -> index.html
+```
+project
+|_index.html
+|_/src
+|____|index.js
+|____/components
+|______________|App.js
+```
+
+
+App.js
+```
+class App extends React.Component {
+  render(){
+    return(
+      <div>
+
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+index.js
+```
+import App from './components/App';
+ReactDOM.render(<App/>, document.getElementById('root'));
+
+```
+
+### CSS in JSX 
+
+```
+render(){
+  return (
+    <div>
+      <h1 className="">
+      <p className="">
+    </div>
+  )
+}
+```
